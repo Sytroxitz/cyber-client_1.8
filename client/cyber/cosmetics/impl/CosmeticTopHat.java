@@ -13,7 +13,7 @@ import org.lwjgl.opengl.GL11;
 
 public class CosmeticTopHat extends CosmeticBase {
     private final ModelTopHat modelTopHat;
-    private static final ResourceLocation TEXTRUE = new ResourceLocation("cyber/hat.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation("cyber/hat.png");
 
     public CosmeticTopHat(RenderPlayer renderPlayer) {
         super(renderPlayer);
@@ -24,7 +24,7 @@ public class CosmeticTopHat extends CosmeticBase {
     public void render(AbstractClientPlayer player, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float headYaw, float headPitch, float scale) {
         if(CosmeticController.shouldRenderTopHat(player)){
             GlStateManager.pushMatrix();
-            playerRenderer.bindTexture(TEXTRUE);
+            playerRenderer.bindTexture(TEXTURE);
             if(player.isSneaking()){
                 GL11.glTranslated(0, 0.225D, 0);
             }
@@ -52,11 +52,13 @@ public class CosmeticTopHat extends CosmeticBase {
             rim.rotateAngleY = playerModel.bipedHead.rotateAngleY;
             rim.rotationPointX = 0.0F;
             rim.rotationPointY = 0.0F;
+            rim.render(scale);
 
             pointy.rotateAngleX = playerModel.bipedHead.rotateAngleX;
             pointy.rotateAngleY = playerModel.bipedHead.rotateAngleY;
             pointy.rotationPointX = 0.0F;
             pointy.rotationPointY = 0.0F;
+            pointy.render(scale);
         }
     }
 }

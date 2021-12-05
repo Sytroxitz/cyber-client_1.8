@@ -11,6 +11,6 @@ public class CosmeticController {
 
     public static float[] getTopHatColor(AbstractClientPlayer player){
         // R G B -> Values 0 - 1 only
-        return new float[] {1, 0, 0};
+        return new float[] {1, 0, 1};
     }
 }
