@@ -22,17 +22,19 @@ public class CosmeticTopHat extends CosmeticBase {
 
     @Override
     public void render(AbstractClientPlayer player, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float headYaw, float headPitch, float scale) {
-        if(CosmeticController.shouldRenderTopHat(player)){
-            GlStateManager.pushMatrix();
-            playerRenderer.bindTexture(TEXTURE);
-            if(player.isSneaking()){
-                GL11.glTranslated(0, 0.225D, 0);
+        if(player.getName().equals("Sytroxitz") && player.hasSkin() && !player.isInvisible()) {
+            if(CosmeticController.shouldRenderTopHat(player)){
+                GlStateManager.pushMatrix();
+                playerRenderer.bindTexture(TEXTURE);
+                if(player.isSneaking()){
+                    GL11.glTranslated(0, 0.225D, 0);
+                }
+                float[] color = CosmeticController.getTopHatColor(player);
+                GL11.glColor3f(color[0], color[1], color[2]);
+                modelTopHat.render(player, limbSwing, limbSwingAmount, partialTicks, ageInTicks, headYaw, headPitch, scale);
+                GL11.glColor3f(1, 1, 1);
+                GL11.glPopMatrix();
             }
-            float[] color = CosmeticController.getTopHatColor(player);
-            GL11.glColor3f(color[0], color[1], color[2]);
-            modelTopHat.render(player, limbSwing, limbSwingAmount, partialTicks, ageInTicks, headYaw, headPitch, scale);
-            GL11.glColor3f(1, 1, 1);
-            GL11.glPopMatrix();
         }
     }
 
