@@ -1,5 +1,6 @@
 package net.minecraft.client.renderer.entity;
 
+import client.cyber.cosmetics.impl.CosmeticCape;
 import client.cyber.cosmetics.impl.CosmeticTopHat;
 import com.sun.istack.internal.NotNull;
 import net.minecraft.client.Minecraft;
@@ -42,8 +43,8 @@ public class RenderPlayer extends RendererLivingEntity<AbstractClientPlayer>
         this.addLayer(new LayerDeadmau5Head(this));
         this.addLayer(new LayerCape(this));
         this.addLayer(new LayerCustomHead(this.getMainModel().bipedHead));
-
         this.addLayer(new CosmeticTopHat(this));
+        this.addLayer(new CosmeticCape(this));
     }
 
     public ModelPlayer getMainModel()

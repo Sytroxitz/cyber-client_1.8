@@ -22,7 +22,7 @@ public class CosmeticTopHat extends CosmeticBase {
 
     @Override
     public void render(AbstractClientPlayer player, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float headYaw, float headPitch, float scale) {
-        if(player.getName().equals("Sytroxitz") && player.hasSkin() && !player.isInvisible()) {
+        if(player.getName().equals("Sytroxitz") || player.getName().equals("PhilTheBoss07") && player.hasSkin() && !player.isInvisible()) {
             if(CosmeticController.shouldRenderTopHat(player)){
                 GlStateManager.pushMatrix();
                 playerRenderer.bindTexture(TEXTURE);
