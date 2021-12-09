@@ -1,5 +1,7 @@
 package net.minecraft.client.renderer.entity;
 
+import client.cyber.Cyber;
+import client.cyber.cosmetics.CosmeticChecker;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
@@ -366,7 +368,7 @@ public abstract class Render<T extends Entity>
             byte b0 = 0;
 
             if (entityIn instanceof AbstractClientPlayer) {
-                if (entityIn.getName().equals("Sytroxitz")) {
+                if (CosmeticChecker.isDeveloper((AbstractClientPlayer) entityIn)) {
                     Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("cyber/logo.png"));
                     Gui.drawModalRectWithCustomSizedTexture(-fontrenderer.getStringWidth(entityIn.getDisplayName().getFormattedText()) / 2 - 12, -2, 10, 10, 10, 10, 10, 10);
                 }

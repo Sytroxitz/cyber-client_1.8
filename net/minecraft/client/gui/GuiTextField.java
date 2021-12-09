@@ -532,7 +532,8 @@ public class GuiTextField extends Gui
                 drawRect(this.xPosition, this.yPosition, this.xPosition + this.width, this.yPosition + this.height, -16777216);
             }
 
-            int i = this.isEnabled ? this.enabledColor : this.disabledColor;
+            //int i = this.isEnabled ? this.enabledColor : this.disabledColor;
+            int i = this.isEnabled ? client.cyber.Client.RainbowEffect(cursorPosition, lineScrollOffset) : this.disabledColor;
             int j = this.cursorPosition - this.lineScrollOffset;
             int k = this.selectionEnd - this.lineScrollOffset;
             String s = this.fontRendererInstance.trimStringToWidth(this.text.substring(this.lineScrollOffset), this.getWidth());

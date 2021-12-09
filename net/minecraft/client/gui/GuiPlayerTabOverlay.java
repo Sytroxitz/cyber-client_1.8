@@ -1,5 +1,6 @@
 package net.minecraft.client.gui;
 
+import client.cyber.Cyber;
 import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.Ordering;
 import com.mojang.authlib.GameProfile;
@@ -18,6 +19,7 @@ import net.minecraft.scoreboard.Scoreboard;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.WorldSettings;
 
 public class GuiPlayerTabOverlay extends Gui
@@ -267,7 +269,13 @@ public class GuiPlayerTabOverlay extends Gui
         }
 
         this.zLevel += 100.0F;
-        this.drawTexturedModalRect(p_175245_2_ + p_175245_1_ - 11, p_175245_3_, 0 + i * 10, 176 + j * 8, 10, 8);
+        if (Cyber.developer || Cyber.vip) {
+            GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+            Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("cyber/logo.png"));
+            Gui.drawScaledCustomSizeModalRect(p_175245_2_ + p_175245_1_ - 11, p_175245_3_, 64, 64, 64, 64, 8, 8, 64, 64);
+        } else {
+            this.drawTexturedModalRect(p_175245_2_ + p_175245_1_ - 11, p_175245_3_, 0 + i * 10, 176 + j * 8, 10, 8);
+        }
         this.zLevel -= 100.0F;
     }
 

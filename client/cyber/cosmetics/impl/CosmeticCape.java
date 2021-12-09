@@ -1,5 +1,6 @@
 package client.cyber.cosmetics.impl;
 
+import client.cyber.cosmetics.CosmeticChecker;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderPlayer;
@@ -22,7 +23,7 @@ public class CosmeticCape implements LayerRenderer
     public void doRenderLayer(AbstractClientPlayer entitylivingbaseIn, float p_177141_2_, float p_177141_3_, float partialTicks, float p_177141_5_, float p_177141_6_, float p_177141_7_, float scale)
     {
         if (entitylivingbaseIn.hasPlayerInfo() && !entitylivingbaseIn.isInvisible() && entitylivingbaseIn.isWearing(EnumPlayerModelParts.CAPE)) {
-            if (entitylivingbaseIn.getName().equals("Sytroxitz") || entitylivingbaseIn.getName().equals("PhilTheBoss07") && entitylivingbaseIn.hasSkin() && !entitylivingbaseIn.isInvisible()) {
+            if (CosmeticChecker.isDeveloper(entitylivingbaseIn) || CosmeticChecker.isVIP(entitylivingbaseIn) && entitylivingbaseIn.hasSkin() && !entitylivingbaseIn.isInvisible()) {
                 GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
                 this.playerRenderer.bindTexture(new ResourceLocation("cyber/cape.png"));
                 GlStateManager.pushMatrix();
